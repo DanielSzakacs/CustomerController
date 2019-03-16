@@ -2,7 +2,9 @@ package com.danielszakacs.customer.controller.customercontroller.service.adminLo
 
 import com.danielszakacs.customer.controller.customercontroller.DAO.repository.AdminRepo;
 import com.danielszakacs.customer.controller.customercontroller.service.security.SecurityManger;
+import javassist.NotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.NotAcceptableStatusException;
 
 @Service
 public class AdminLoginHandler {
@@ -16,13 +18,14 @@ public class AdminLoginHandler {
         this.securityManger = securityManger;
     }
 
-    public boolean isAdminLoginDataCorrect(String email, String password){
+    public void adminLogin(String email, String password){
         if(isAdminUserRegistrated(email)){
-            if(isPasswordCorrect(email, password)){
-                return true;
+            if(!isPasswordCorrect(email, password)){
+                throw new IllegalArgumentException();
             }
+        }else{
+            throw new IllegalArgumentException();
         }
-        return false;
     }
 
     public boolean isAdminUserRegistrated(String email){
