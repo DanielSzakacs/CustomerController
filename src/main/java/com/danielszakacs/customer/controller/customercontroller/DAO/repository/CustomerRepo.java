@@ -12,4 +12,8 @@ public interface CustomerRepo extends JpaRepository<Customer, Long> {
     Customer findByEmail(String email);
 
     Customer findByName(String name);
+
+    boolean existsByEmail(String email);
+
+    void deleteById(Long id);
 }
