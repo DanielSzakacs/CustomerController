@@ -28,21 +28,21 @@ public class RegistrationController {
     public void registerNewAdmin(@RequestBody Map<String, String> newAdmin) {
         System.out.println("registration working");
         try {
-            this.registrationService.newAdminRegistration(newAdmin.get("email"), newAdmin.get("password"));
+            new RegistrationService(this.adminRepo, this.securityManager).newAdminRegistration(newAdmin.get("email"), newAdmin.get("password"));
         } catch (IllegalArgumentException e) {
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST, "Admin not registered");
         }
     }
 
-    @GetMapping("/")
-    public void testingController() {
-        System.out.println("Test controller is running.");
-        try {
-            new RegistrationService(this.adminRepo, this.securityManager).newAdminRegistration("daniel", "dsada");
-        } catch (IllegalArgumentException e) {
-            throw new ResponseStatusException(
-                    HttpStatus.BAD_REQUEST, "Admin not registered");
-        }
-    }
+//    @GetMapping("/")
+//    public void testingController() {
+//        System.out.println("Test controller is running.");
+//        try {
+//            new RegistrationService(this.adminRepo, this.securityManager).newAdminRegistration("daniel", "dsada");
+//        } catch (IllegalArgumentException e) {
+//            throw new ResponseStatusException(
+//                    HttpStatus.BAD_REQUEST, "Admin not registered");
+//        }
+//    }
 }
