@@ -17,13 +17,13 @@ public class RegistrationService {
         this.securityManager = securityManager;
     }
 
-    public boolean newAdminRegistration(String adminEmail, String password){
+    public boolean newAdminRegistration(String adminEmail, String password) throws IllegalArgumentException{
         if(this.isAdminEmailUnUsed(adminEmail)){
             String hashedPassword = this.hashCode(password);
             this.saveAdmin(adminEmail, hashedPassword);
             return true;
         }
-        return false;
+        throw new IllegalArgumentException(); // TODO this is not working for 100%
     }
 
     public boolean isAdminEmailUnUsed(String email){

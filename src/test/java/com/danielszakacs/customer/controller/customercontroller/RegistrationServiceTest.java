@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
-public class RegistrationServiceTest {
+public class RegistrationServiceTest { //TODO need more test here.
 
     @Before
     private AdminRepo getMockedAdminrepo(){
