@@ -35,14 +35,14 @@ public class RegistrationController {
         }
     }
 
-    @GetMapping("/")
-    public void testingController() {
-        System.out.println("Test controller is running.");
-        try {
-            new RegistrationService(this.adminRepo, this.securityManager).newAdminRegistration("daniel", "dsada");
-        } catch (IllegalArgumentException e) {
-            throw new ResponseStatusException(
-                    HttpStatus.BAD_REQUEST, "Admin not registered");
-        }
-    }
+//    @GetMapping("/")
+//    public void testingController() {
+//        System.out.println("Test controller is running.");
+//        try {
+//            new RegistrationService(this.adminRepo, this.securityManager).newAdminRegistration("daniel", "dsada");
+//        } catch (IllegalArgumentException e) {
+//            throw new ResponseStatusException(
+//                    HttpStatus.BAD_REQUEST, "Admin not registered");
+//        }
+//    }
 }
