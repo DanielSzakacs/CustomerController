@@ -68,12 +68,26 @@ body {
 }
 .events_list{
   border-bottom: 1px solid;
-  padding: 1em;
   margin-right: -2%;
   margin-left: -4.5%;
   margin-top: -1.5%;
   background-color: #e0e0e0;
-
+  padding: 1em 1em 3em;
+}
+.events_list a{
+  margin-left: 0.5em;
+  float: right;
+  padding: 10px 12px;
+  text-decoration: none;
+  font-size: 14px;
+  background-color: #fafafa;
+  color: black;
+  display: flow;
+  text-align: left;
+}
+.events_list a:hover {
+  background-color: #d0d6e2;
+  color: black;
 }
  /*Side customer menu scrolling body*/
 body {
@@ -95,10 +109,77 @@ ul {
   max-width: 500px;
   color: #333;
   list-style: none;
-  margin: 20px auto;
+  /*margin: 20px auto;*/
   padding: 10px;
 }
-
+.list li:hover{
+  background-color: white;
+  color: black;
+}
 .center {
   text-align: center;
+}
+
+
+
+
+
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
 }

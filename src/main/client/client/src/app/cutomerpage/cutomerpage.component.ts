@@ -16,4 +16,6 @@ export class CutomerpageComponent implements OnInit {
   ngOnInit() {
   }
 
+  // search_customer
+  // addNewCustomer
 }
