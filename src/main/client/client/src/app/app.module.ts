@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CutomerpageComponent } from './cutomerpage/cutomerpage.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+
 
 @NgModule({
   declarations: [
@@ -10,7 +12,8 @@ import { CutomerpageComponent } from './cutomerpage/cutomerpage.component';
     CutomerpageComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
