@@ -14,8 +14,12 @@
     <button class="btn btn-info">Search</button>
     <button class="btn btn-info">Add</button>
   </div>
-  <!--<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">-->
-    <!--<div *ngFor="let item of items" class="example-item">{{item}}</div>-->
-  <!--</cdk-virtual-scroll-viewport>-->
+  <ul class="list">
+    <cdk-virtual-scroll-viewport  style="height: 500px" itemSize="90" >
+      <ng-container *cdkVirtualFor="let n of numbers">
+        <li> {{n}} </li>
+      </ng-container>
+    </cdk-virtual-scroll-viewport>
+  </ul>
 
 </div>

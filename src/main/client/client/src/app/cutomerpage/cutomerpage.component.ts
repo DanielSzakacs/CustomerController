@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cutomerpage.component.css']
 })
 export class CutomerpageComponent implements OnInit {
-
-  constructor() { }
+  numbers: number[] = [];
+  constructor() {
+    for (let index = 0; index < 10000; index++) {
+      this.numbers.push(index);
+    }
+  }
 
   ngOnInit() {
   }
