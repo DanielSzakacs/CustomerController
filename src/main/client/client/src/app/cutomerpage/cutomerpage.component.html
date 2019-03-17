@@ -1,0 +1,59 @@
+<div class="topnav" id="myTopnav">
+  <a href="#home" class="active">Home</a>
+  <a href="#news">Customers</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+  <a href="#logout" class="logout_button">Logout</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+<!--Customer side menu-->
+<div class="customer_menu">
+  <div class="events_list">
+      <a href="#add_new_customer">Add</a>
+      <a href="#search">Search</a>
+  </div>
+  <ul class="list">
+    <cdk-virtual-scroll-viewport  style="height: 500px" itemSize="90" >
+      <ng-container *cdkVirtualFor="let n of numbers">
+        <li> {{n}} </li>
+      </ng-container>
+    </cdk-virtual-scroll-viewport>
+  </ul>
+</div>
+
+<!--Search popup-->
+<div id="search" class="overlay">
+  <div class="popup">
+    <h2>Search Customer</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content">
+      <br>
+      <form #searchCustomer = "ngForm" (submit)="search_customer(searchCustomer.value)">
+        <input class="text-input-dialog" type="text" name="email" placeholder="email" ngModel required>
+        <hr>
+        <button class="btn btn-danger submit" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--Add new Customer popup-->
+<div id="add_new_customer" class="overlay">
+  <div class="popup">
+    <h2>Add new Customer</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content">
+      <br>
+      <form #addCustomer = "ngForm" (submit)="addNewCustomer(addCustomer.value)">
+        <input class="text-input-dialog" type="text" name="name" placeholder="Name" ngModel required> <br>
+        <input class="text-input-dialog" type="text" name="email" placeholder="Email" ngModel required> <br>
+        <input class="text-input-dialog" type="text" name="address" placeholder="Address" ngModel required> <br>
+        <input class="text-input-dialog" type="text" name="telephone" placeholder="Telephone number" ngModel required>
+        <hr>
+        <button class="btn btn-danger submit" type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+</div>
