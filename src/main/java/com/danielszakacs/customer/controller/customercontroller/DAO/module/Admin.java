@@ -13,6 +13,8 @@ public class Admin {
 
     private String password;
 
+    public Admin() { }
+
     public Admin(String adminEmail, String password) {
         this.adminEmail = adminEmail;
         this.password = password;

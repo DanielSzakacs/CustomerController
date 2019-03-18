@@ -18,6 +18,8 @@ public class Customer {
 
     private int telephone;
 
+    public Customer() { }
+
     public Customer(String name, String email, String address, int telephone) {
         this.name = name;
         this.email = email;
