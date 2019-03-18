@@ -2,10 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { CutomerpageComponent } from './cutomerpage/cutomerpage.component';
+import { CutomerpageComponent } from './customerpage/cutomerpage.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FormsModule } from '@angular/forms'
-
+import {HttpClientModule} from "@angular/common/http";
+import {AlertsModule} from "angular-alert-module";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { FormsModule } from '@angular/forms'
   imports: [
     BrowserModule,
     ScrollingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    AlertsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

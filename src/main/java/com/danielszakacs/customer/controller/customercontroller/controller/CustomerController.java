@@ -1,13 +1,9 @@
 package com.danielszakacs.customer.controller.customercontroller.controller;
 
-import com.danielszakacs.customer.controller.customercontroller.DAO.module.Customer;
 import com.danielszakacs.customer.controller.customercontroller.DAO.repository.CustomerRepo;
 import com.danielszakacs.customer.controller.customercontroller.service.CustomerHandler.CustomerHandler;
 import com.danielszakacs.customer.controller.customercontroller.service.security.SecurityManger;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
