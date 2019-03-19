@@ -11,22 +11,55 @@
   </a>
 </div>
 <!--Customer side menu-->
-<div class="customer_menu">
-  <div class="events_list">
-      <a href="#add_new_customer">Add</a>
-      <a href="#search">Search</a>
+<div>
+  <!--Customer detailed data table-->
+  <div class="customer_pic_table">
+    <div *ngIf="selectedCustomer" class="customer_pic">
+      <div>
+        <img src="http://www.snippetdeveloper.com/img/users/default.png" alt="picture">
+      </div>
+      <hr>
+    </div>
   </div>
-  <ul class="list">
-    <cdk-virtual-scroll-viewport  style="height: 500px" itemSize="90" >
-      <ng-container *cdkVirtualFor="let customer of customersList">
-        <li (click)="this.selectCustomer(customer)">
-          {{customer['name']}} <br>
-          {{customer['email']}}
-          <hr>
-        </li>
-      </ng-container>
-    </cdk-virtual-scroll-viewport>
-  </ul>
+
+  <div class="customer_menu">
+    <div class="events_list">
+        <a href="#add_new_customer">Add</a>
+        <a href="#search">Search</a>
+    </div>
+    <ul class="list">
+      <cdk-virtual-scroll-viewport  style="height: 500px" itemSize="90" >
+        <ng-container *cdkVirtualFor="let customer of customersList">
+          <li (click)="this.selectCustomer(customer)">
+            {{customer['name']}} <br>
+            {{customer['email']}}
+            <hr>
+          </li>
+        </ng-container>
+      </cdk-virtual-scroll-viewport>
+    </ul>
+  </div>
+
+  <div class="customer_main_data_table" *ngIf="selectedCustomer">
+    <div>
+      <h1>{{this.selectedCustomer['name']}}</h1>
+    </div>
+    <ul style="list-style-type: square;">
+      <li>
+        <h4>Email :</h4>    {{this.selectedCustomer['email']}}
+      </li>
+      <li>
+        <h4>Address :</h4>    {{this.selectedCustomer['address']}}
+      </li>
+      <li>
+        <h4>Telephone :</h4>    {{this.selectedCustomer['telephone']}}
+      </li>
+    </ul>
+    <div class="data_handler_button">
+      <a href="#" id="delete_button">Delete</a>
+      <a href="#" id="edit_button">Edit</a>
+    </div>
+  </div>
 </div>
 
 <!--Search popup-->

@@ -46,6 +46,5 @@ export class CutomerpageComponent implements OnInit {
 
   protected selectCustomer(customer){
     this.selectedCustomer = customer;
-    this.alertService.success('Customer selected');
   }
 }
