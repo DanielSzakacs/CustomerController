@@ -6,7 +6,11 @@ import { CutomerpageComponent } from './customerpage/cutomerpage.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FormsModule } from '@angular/forms'
 import {HttpClientModule} from "@angular/common/http";
-import {AlertsModule} from "angular-alert-module";
+// Import BrowserAnimationsModule
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
+// Import your library
+import { AlertModule } from 'ngx-alerts';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,9 @@ import {AlertsModule} from "angular-alert-module";
     ScrollingModule,
     FormsModule,
     HttpClientModule,
-    AlertsModule.forRoot()
+    BrowserAnimationsModule,
+    // Specify your library as an import
+    AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'right'})
   ],
   providers: [],
   bootstrap: [AppComponent]

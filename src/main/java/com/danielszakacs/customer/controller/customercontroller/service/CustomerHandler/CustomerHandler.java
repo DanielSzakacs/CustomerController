@@ -43,6 +43,7 @@ public class CustomerHandler {
         }else{
             throw new AttributeInUseException();
         }
+
     }
 
     public Customer getCustomerByEmail(String email) throws NullPointerException, IllegalArgumentException{

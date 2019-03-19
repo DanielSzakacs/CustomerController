@@ -1,5 +1,6 @@
 package com.danielszakacs.customer.controller.customercontroller.controller;
 
+import com.danielszakacs.customer.controller.customercontroller.DAO.module.Customer;
 import com.danielszakacs.customer.controller.customercontroller.DAO.repository.CustomerRepo;
 import com.danielszakacs.customer.controller.customercontroller.service.CustomerHandler.CustomerHandler;
 import com.danielszakacs.customer.controller.customercontroller.service.security.SecurityManger;
@@ -7,8 +8,11 @@ import com.danielszakacs.customer.controller.customercontroller.service.security
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
+import javax.naming.directory.AttributeInUseException;
 import java.util.List;
 import java.util.Map;
 
@@ -27,8 +31,18 @@ public class CustomerController {
 
 
     @PostMapping("/add_customer")
-    public void addNewCustomer(@RequestBody Map<String, String> customerData){
-        // TODO AttributeInUseException hogy ha a customer email-e mar registralva van. IllegalArgumentException ha nem email-t irt be.
+    public void addNewCustomer(@RequestBody Map<String, String> customerData) {
+        try{
+            new CustomerHandler(this.customerRepo, this.securityManger).addNewCustomer(
+                    customerData.get("name"), customerData.get("email"),
+                    customerData.get("address"), Integer.valueOf(customerData.get("telephone")));
+            throw new ResponseStatusException(HttpStatus.OK);
+            // TODO AttributeInUseException hogy ha a customer email-e mar registralva van. IllegalArgumentException ha nem email-t irt be.
+        }catch (AttributeInUseException e){
+            throw new ResponseStatusException(HttpStatus.valueOf(405), "Email is already registered");
+        }catch(IllegalArgumentException e){
+            throw new ResponseStatusException(HttpStatus.valueOf(406), "This is not an valid email");
+        }
     }
 
     @GetMapping("/search_customer")

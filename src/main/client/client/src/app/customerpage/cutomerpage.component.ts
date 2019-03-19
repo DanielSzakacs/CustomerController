@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {AlertsService} from "angular-alert-module";
 import {environment} from "../../environments/environment.prod";
+import {AlertService} from "ngx-alerts";
 
 @Component({
   selector: 'app-cutomerpage',
@@ -9,15 +9,14 @@ import {environment} from "../../environments/environment.prod";
   styleUrls: ['./cutomerpage.component.css']
 })
 export class CutomerpageComponent implements OnInit {
-  private customersList = [];
+  private customersList;
 
-  constructor(private http: HttpClient, private alert: AlertsService) {
+
+  constructor(private http: HttpClient, private alertService: AlertService) {
   }
 
   ngOnInit() {
-    this.alert.setDefaults('timeout', 4); //The alert will be visible for 4 sec.
     this.getAllCustomer();
-    console.log(this.customersList);
   }
 
   private getAllCustomer(){
@@ -25,9 +24,23 @@ export class CutomerpageComponent implements OnInit {
       this.customersList = res;
     },
       error1 => {
-      this.alert.setMessage('No connection with the database', 'error')
+      this.alertService.danger('No connection with the database')
+      })
+  }
+
+  protected addNewCustomer(customer){
+    this.http.post(environment.backendUrl + environment.addNewCustomer, customer).subscribe(res => {
+      this.alertService.success('New customer is saved');
+      this.getAllCustomer();
+    },
+      error1 => {
+      if(error1['status']==405){
+        this.alertService.warning('Email is already registered');
+      }
+      if(error1['status']==406){
+        this.alertService.danger('This is not an valid email');
+      }
       })
   }
   // search_customer
-  // addNewCustomer
 }
