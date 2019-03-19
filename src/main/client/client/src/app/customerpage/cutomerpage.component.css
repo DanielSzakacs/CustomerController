@@ -3,12 +3,10 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 .topnav {
   overflow: hidden;
   background-color: #333;
 }
-
 .topnav a {
   float: left;
   display: block;
@@ -18,21 +16,17 @@ body {
   text-decoration: none;
   font-size: 17px;
 }
-
 .topnav a:hover {
   background-color: #ddd;
   color: black;
 }
-
 .active {
   background-color: #4CAF50;
   color: white;
 }
-
 .topnav .icon {
   display: none;
 }
-
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
@@ -40,7 +34,6 @@ body {
     display: block;
   }
 }
-
 @media screen and (max-width: 600px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
@@ -54,12 +47,12 @@ body {
     text-align: left;
   }
 }
-
 .topnav .logout_button{
   float: right;
   background-color: red;
   color: white;
 }
+
  /*Side customer menu border and top*/
 .customer_menu{
   margin-right: 65em;
@@ -89,6 +82,7 @@ body {
   background-color: #d0d6e2;
   color: black;
 }
+
  /*Side customer menu scrolling body*/
 body {
   font-family: 'Segoe UI', Roboto, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -96,7 +90,6 @@ body {
   color: #fff;
   overflow: hidden;
 }
-
 .list li {
   padding: 25px;
   border-radius: 5px;
@@ -104,7 +97,6 @@ body {
   margin-top: 1px;
   background-color: #fafafa;
 }
-
 ul {
   max-width: 500px;
   color: #333;
@@ -119,13 +111,6 @@ ul {
 .center {
   text-align: center;
 }
-
-
-
-
-
-
-
 .overlay {
   position: fixed;
   top: 0;
@@ -141,7 +126,6 @@ ul {
   visibility: visible;
   opacity: 1;
 }
-
 .popup {
   margin: 70px auto;
   padding: 20px;
@@ -151,7 +135,6 @@ ul {
   position: relative;
   transition: all 5s ease-in-out;
 }
-
 .popup h2 {
   margin-top: 0;
   color: #333;
@@ -174,7 +157,6 @@ ul {
   max-height: 30%;
   overflow: auto;
 }
-
 @media screen and (max-width: 700px){
   .box{
     width: 70%;
@@ -182,4 +164,39 @@ ul {
   .popup{
     width: 70%;
   }
+}
+
+/*Customer detailed data table*/
+.customer_pic_table{
+  float: right;
+}
+.customer_pic{
+  margin-right: 29em;
+  margin-top: 2em;
+}
+.customer_pic img{
+  width: 150px;
+}
+
+.customer_main_data_table{
+  float: left;
+  margin-left: 30em;
+  margin-top: -27em;
+}
+.data_handler_button a{
+  margin-left: 0.5em;
+  float: right;
+  padding: 10px 12px;
+  text-decoration: none;
+  font-size: 14px;
+  background-color: #fafafa;
+  color: black;
+  display: flow;
+  text-align: left;
+}
+.data_handler_button #edit_button:hover{
+  background-color: #bbdefb;
+}
+.data_handler_button #delete_button:hover{
+  background-color: #e57373;
 }

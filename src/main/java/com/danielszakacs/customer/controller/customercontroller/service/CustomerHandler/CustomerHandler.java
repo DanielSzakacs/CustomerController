@@ -7,6 +7,7 @@ import com.danielszakacs.customer.controller.customercontroller.service.security
 
 
 import javax.naming.directory.AttributeInUseException;
+import java.util.List;
 
 @Service
 public class CustomerHandler {
@@ -42,6 +43,7 @@ public class CustomerHandler {
         }else{
             throw new AttributeInUseException();
         }
+
     }
 
     public Customer getCustomerByEmail(String email) throws NullPointerException, IllegalArgumentException{
@@ -57,5 +59,9 @@ public class CustomerHandler {
     }
 
 //    public void editCustomerData(String) //TODO
+
+    public List<Customer> getAllCustomer(){
+        return this.customerRepo.findAll();
+    }
 
 }
