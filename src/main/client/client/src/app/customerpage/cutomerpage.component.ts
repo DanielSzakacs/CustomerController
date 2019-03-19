@@ -9,8 +9,8 @@ import {AlertService} from "ngx-alerts";
   styleUrls: ['./cutomerpage.component.css']
 })
 export class CutomerpageComponent implements OnInit {
-  private customersList;
-
+  protected customersList;
+  protected selectedCustomer;
 
   constructor(private http: HttpClient, private alertService: AlertService) {
   }
@@ -43,4 +43,9 @@ export class CutomerpageComponent implements OnInit {
       })
   }
   // search_customer
+
+  protected selectCustomer(customer){
+    this.selectedCustomer = customer;
+    this.alertService.success('Customer selected');
+  }
 }

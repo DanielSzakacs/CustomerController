@@ -18,8 +18,12 @@
   </div>
   <ul class="list">
     <cdk-virtual-scroll-viewport  style="height: 500px" itemSize="90" >
-      <ng-container *cdkVirtualFor="let n of numbers">
-        <li> {{n}} </li>
+      <ng-container *cdkVirtualFor="let customer of customersList">
+        <li (click)="this.selectCustomer(customer)">
+          {{customer['name']}} <br>
+          {{customer['email']}}
+          <hr>
+        </li>
       </ng-container>
     </cdk-virtual-scroll-viewport>
   </ul>
