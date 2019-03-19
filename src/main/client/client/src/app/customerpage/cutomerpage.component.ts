@@ -9,8 +9,8 @@ import {AlertService} from "ngx-alerts";
   styleUrls: ['./cutomerpage.component.css']
 })
 export class CutomerpageComponent implements OnInit {
-  protected customersList;
-  protected selectedCustomer;
+  customersList;
+  selectedCustomer;
 
   constructor(private http: HttpClient, private alertService: AlertService) {
   }
@@ -19,7 +19,7 @@ export class CutomerpageComponent implements OnInit {
     this.getAllCustomer();
   }
 
-  private getAllCustomer(){
+  getAllCustomer(){
     this.http.get(environment.backendUrl+environment.getAllCustomer).subscribe(res => {
       this.customersList = res;
     },
@@ -28,7 +28,7 @@ export class CutomerpageComponent implements OnInit {
       })
   }
 
-  protected addNewCustomer(customer){
+  addNewCustomer(customer){
     this.http.post(environment.backendUrl + environment.addNewCustomer, customer).subscribe(res => {
       this.alertService.success('New customer is saved');
       this.getAllCustomer();
@@ -44,7 +44,19 @@ export class CutomerpageComponent implements OnInit {
   }
   // search_customer
 
-  protected selectCustomer(customer){
+  search_customer(email){
+    this.alertService.warning('This feature is under development')
+  }
+
+  selectCustomer(customer){
     this.selectedCustomer = customer;
+  }
+
+  delete_customer(){
+    this.alertService.warning('This feature is under development')
+  }
+
+  edit_customer_data(){
+    this.alertService.warning('This feature is under development')
   }
 }

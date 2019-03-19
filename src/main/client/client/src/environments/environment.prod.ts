@@ -1,6 +1,7 @@
 export const environment = {
   production: true,
-  backendUrl: 'http://localhost:8081',
+  backendUrl: '',
+  // backendUrl: 'http://localhost:8080',
   getAllCustomer: '/customers',
   addNewCustomer: '/add_customer'
 };
