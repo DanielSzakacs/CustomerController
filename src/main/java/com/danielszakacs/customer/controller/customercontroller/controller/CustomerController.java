@@ -59,8 +59,9 @@ public class CustomerController {
     }
 
     @DeleteMapping("/delete_customer")
-    public void deleteCustomer(@RequestBody Map<String, String> customerData){ //TODO this is by Customer ID
-
+    public void deleteCustomer(@RequestParam(name = "id", required = true) Long id){ //TODO this is by Customer ID
+        System.out.println(id);
+        this.customerRepo.deleteById(id);
     }
 
 

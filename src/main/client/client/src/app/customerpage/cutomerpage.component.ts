@@ -53,7 +53,17 @@ export class CutomerpageComponent implements OnInit {
   }
 
   delete_customer(){
-    this.alertService.warning('This feature is under development')
+    this.http.delete(environment.backendUrl + environment.deleteCustomer + "?id=" + this.selectedCustomer['id']).subscribe(res =>{
+      this.alertService.info('Customer deleted');
+      console.log(res);
+      this.getAllCustomer();
+      this.selectCustomer(null);
+    },
+      error1 => {
+      console.log(error1);
+      this.alertService.warning('Something went wrong');
+      })
+
   }
 
   edit_customer_data(){
