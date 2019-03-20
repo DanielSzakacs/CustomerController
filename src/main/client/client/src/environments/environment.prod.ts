@@ -3,5 +3,6 @@ export const environment = {
   backendUrl: '',
   // backendUrl: 'http://localhost:8080',
   getAllCustomer: '/customers',
-  addNewCustomer: '/add_customer'
+  addNewCustomer: '/add_customer',
+  deleteCustomer: '/delete_customer'
 };
