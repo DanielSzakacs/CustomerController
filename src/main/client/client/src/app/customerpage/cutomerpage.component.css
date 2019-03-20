@@ -58,7 +58,9 @@ body {
   margin-right: 65em;
   padding: 6px 8px 6px 16px;
   background-color: #f5f5f5;
+  margin-left: 12px;
 }
+
 .events_list{
   border-bottom: 1px solid;
   margin-right: -2%;
@@ -174,14 +176,17 @@ ul {
   margin-right: 29em;
   margin-top: 2em;
 }
-.customer_pic img{
+.customer_main_data_table img{
   width: 150px;
+}
+.customer_main_data_table .customer_picture{
+  margin-left: 28em;
 }
 
 .customer_main_data_table{
   float: left;
   margin-left: 30em;
-  margin-top: -27em;
+  margin-top: -43em;
 }
 .data_handler_button a{
   margin-left: 0.5em;
