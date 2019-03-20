@@ -54,16 +54,13 @@ export class CutomerpageComponent implements OnInit {
 
   delete_customer(){
     this.http.delete(environment.backendUrl + environment.deleteCustomer + "?id=" + this.selectedCustomer['id']).subscribe(res =>{
-      this.alertService.info('Customer deleted');
-      console.log(res);
       this.getAllCustomer();
       this.selectCustomer(null);
+      this.alertService.info('Customer deleted');
     },
-      error1 => {
-      console.log(error1);
+      error1n => {
       this.alertService.warning('Something went wrong');
       })
-
   }
 
   edit_customer_data(){
