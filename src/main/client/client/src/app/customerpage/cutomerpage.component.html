@@ -70,7 +70,7 @@
     <div class="content">
       <br>
       <form #searchCustomer = "ngForm" (submit)="search_customer(searchCustomer.value)">
-        <input class="text-input-dialog" type="text" name="email" placeholder="email" ngModel required minlength="5">
+        <input class="text-input-dialog" type="text" name="email" placeholder="email" ngModel >
         <hr>
         <button class="btn btn-danger submit" type="submit">Search</button>
       </form>
@@ -86,10 +86,10 @@
     <div class="content">
       <br>
       <form #addCustomer = "ngForm" (submit)="addNewCustomer(addCustomer.value)">
-        <input class="text-input-dialog" type="text" name="name" placeholder="Name" ngModel required minlength="4"> <br>
-        <input class="text-input-dialog" type="text" name="email" placeholder="Email" ngModel required minlength="5"> <br>
-        <input class="text-input-dialog" type="text" name="address" placeholder="Address" ngModel required minlength="5"> <br>
-        <input class="text-input-dialog" type="text" name="telephone" placeholder="Telephone number" ngModel required minlength="5">
+        <input class="text-input-dialog" type="text" name="name" placeholder="Name" ngModel > <br>
+        <input class="text-input-dialog" type="text" name="email" placeholder="Email" ngModel > <br>
+        <input class="text-input-dialog" type="text" name="address" placeholder="Address" ngModel > <br>
+        <input class="text-input-dialog" type="text" name="telephone" placeholder="Telephone number" ngModel >
         <hr>
         <button class="btn btn-danger submit" type="submit">Add</button>
       </form>
