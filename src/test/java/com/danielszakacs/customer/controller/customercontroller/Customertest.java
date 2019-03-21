@@ -18,7 +18,7 @@ public class Customertest {
     @Before
     private CustomerRepo getMockedCustomerRepo(){
         CustomerRepo customerRepoMocked = Mockito.mock(CustomerRepo.class);
-        when(customerRepoMocked.findByEmail(anyString())).thenReturn(new Customer("Daniel Something", "daniel@gmail.com", "Ukrine, Uzhgorod, 2301", 234135));
+        when(customerRepoMocked.findByEmail(anyString())).thenReturn(new Customer("Daniel Something", "daniel@gmail.com", "Ukrine, Uzhgorod, 2301", "234135"));
         return customerRepoMocked;
     }
 
@@ -39,7 +39,7 @@ public class Customertest {
 
     @Test
     void isCutomerGetTelephone_return_correctTelephneNumber(){
-        assertEquals(234135, getMockedCustomerRepo().findByEmail(anyString()).getTelephone());
+        assertEquals("234135", getMockedCustomerRepo().findByEmail(anyString()).getTelephone());
     }
 
 }

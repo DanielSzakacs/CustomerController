@@ -67,7 +67,11 @@ body {
   margin-left: -4.5%;
   margin-top: -1.5%;
   background-color: #e0e0e0;
-  padding: 1em 1em 3em;
+  padding: 1em 1em 1em;
+}
+.events_list .search_input{
+  margin-top: 7px;
+  margin-left: 2.5em;
 }
 .events_list a{
   margin-left: 0.5em;

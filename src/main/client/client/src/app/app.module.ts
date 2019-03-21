@@ -6,6 +6,7 @@ import { CutomerpageComponent } from './customerpage/cutomerpage.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FormsModule } from '@angular/forms'
 import {HttpClientModule} from "@angular/common/http";
+import {ReactiveFormsModule} from "@angular/forms";
 // Import BrowserAnimationsModule
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
@@ -23,6 +24,7 @@ import { AlertModule } from 'ngx-alerts';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     // Specify your library as an import
     AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'right'})
   ],

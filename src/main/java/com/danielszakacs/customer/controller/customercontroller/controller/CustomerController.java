@@ -35,7 +35,7 @@ public class CustomerController {
         try{
             new CustomerHandler(this.customerRepo, this.securityManger).addNewCustomer(
                     customerData.get("name"), customerData.get("email"),
-                    customerData.get("address"), Integer.valueOf(customerData.get("telephone")));
+                    customerData.get("address"), customerData.get("telephone"));
             throw new ResponseStatusException(HttpStatus.OK);
             // TODO AttributeInUseException hogy ha a customer email-e mar registralva van. IllegalArgumentException ha nem email-t irt be.
         }catch (AttributeInUseException e){
@@ -46,8 +46,11 @@ public class CustomerController {
     }
 
     @GetMapping("/search_customer")
-    public void getCustomerByEmail(@RequestParam(name = "email", required = true) String email){
-        //TODO NullPointerException ha nincs olyan user, IllegalArgumentException ha nem valid email-t irtál be.
+    public String getCustomerByEmail(@RequestParam(name = "name", required = true) String name){
+        JSONArray jsonArray = new JSONArray();
+        new CustomerHandler(this.customerRepo, this.securityManger).getCustomerByName(name).stream()
+                .forEach(t -> jsonArray.put(new JSONObject(t)));
+        return jsonArray.toString();
     }
 
     @GetMapping("/customers")
@@ -59,9 +62,8 @@ public class CustomerController {
     }
 
     @DeleteMapping("/delete_customer")
-    public void deleteCustomer(@RequestParam(name = "id", required = true) Long id){ //TODO this is by Customer ID
-        System.out.println(id);
-        this.customerRepo.deleteById(id);
+    public void deleteCustomer(@RequestParam(name = "id", required = true) String id){ //TODO this is by Customer ID
+        new CustomerHandler(this.customerRepo, this.securityManger).deleteCustomer(id);
     }
 
 
