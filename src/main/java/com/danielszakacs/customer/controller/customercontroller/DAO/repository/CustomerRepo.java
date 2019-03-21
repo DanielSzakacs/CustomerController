@@ -17,8 +17,6 @@ public interface CustomerRepo extends JpaRepository<Customer, Long> {
 
     void deleteById(Long id);
 
-    List<Customer> findByName(String name);
-
     @Query("SELECT u FROM Customer u WHERE u.name LIKE CONCAT(:username,'%')")
     List<Customer> findCustomersWithPartOfName(@Param("username") String username);
 
