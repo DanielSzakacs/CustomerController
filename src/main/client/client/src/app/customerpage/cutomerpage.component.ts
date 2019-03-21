@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment.prod";
 import {AlertService} from "ngx-alerts";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-cutomerpage',
@@ -11,12 +12,30 @@ import {AlertService} from "ngx-alerts";
 export class CutomerpageComponent implements OnInit {
   customersList;
   selectedCustomer;
+  queryField: FormControl = new FormControl();
 
   constructor(private http: HttpClient, private alertService: AlertService) {
   }
 
   ngOnInit() {
+    this.queryField.valueChanges
+      .subscribe( result => {
+        console.log(result);
+        this.searchCustomersByName(result);
+      });
     this.getAllCustomer();
+  }
+
+  searchCustomersByName(name){
+    if(name == ''){
+      this.getAllCustomer();
+    }
+    this.http.get(environment.backendUrl + '/search_customer?name=' + name).subscribe(res => {
+      this.customersList = res;
+    },
+      error1 => {
+      console.log(error1);
+      })
   }
 
   getAllCustomer(){

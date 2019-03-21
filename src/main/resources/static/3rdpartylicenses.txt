@@ -319,6 +319,12 @@ THE SOFTWARE.
 @angular/common
 MIT
 
+@angular/platform-browser
+MIT
+
+@angular/forms
+MIT
+
 @angular/cdk
 MIT
 The MIT License
@@ -345,12 +351,6 @@ THE SOFTWARE.
 
 
 @angular/cdk/scrolling
-
-@angular/platform-browser
-MIT
-
-@angular/forms
-MIT
 
 @angular/animations
 MIT

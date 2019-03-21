@@ -20,7 +20,7 @@ public class CustomerHandler {
         this.securityManger = securityManger;
     }
 
-    private Customer createNewCustomer(String name, String email, String address, int telephone){
+    private Customer createNewCustomer(String name, String email, String address, String telephone){
         return new Customer(name, email, address, telephone);
     }
 
@@ -32,7 +32,7 @@ public class CustomerHandler {
         this.customerRepo.save(customer);
     }
 
-    public void addNewCustomer(String name, String email, String address, int telephone) throws AttributeInUseException, IllegalArgumentException{
+    public void addNewCustomer(String name, String email, String address, String telephone) throws AttributeInUseException, IllegalArgumentException{
         if(!this.isCustomerEmailInUsed(email)){
             if(this.securityManger.isEmailValid(email)){
                 Customer newCustomer = this.createNewCustomer(name, email, address, telephone);
@@ -46,12 +46,8 @@ public class CustomerHandler {
 
     }
 
-    public Customer getCustomerByEmail(String email) throws NullPointerException, IllegalArgumentException{
-        if(this.securityManger.isEmailValid(email)){
-            return this.customerRepo.findByEmail(email);
-        }else{
-            throw new IllegalAccessError();
-        }
+    public List<Customer> getCustomerByName(String name){
+        return this.customerRepo.findCustomersWithPartOfName(name);
     }
 
     public void deleteCustomer(String id){

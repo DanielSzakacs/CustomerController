@@ -16,11 +16,11 @@ public class Customer {
 
     private String address;
 
-    private int telephone;
+    private String telephone;
 
     public Customer() { }
 
-    public Customer(String name, String email, String address, int telephone) {
+    public Customer(String name, String email, String address, String telephone) {
         this.name = name;
         this.email = email;
         this.address = address;
@@ -60,11 +60,11 @@ public class Customer {
         this.address = address;
     }
 
-    public int getTelephone() {
+    public String getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(int telephone) {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 }
