@@ -13,9 +13,10 @@ You can add, delete and search customers by name.
 - Docker
 - Angular 7
 
-#Set-up: 
-![alt text](forreadme/pic.png)
-
 #Outlook:
 To see the project on Heroku, please use this link: https://customermanagerpage.herokuapp.com/
 ![alt text](forreadme/heroku.png)
+
+#Set-up: 
+![alt text](forreadme/pic.png)
+
