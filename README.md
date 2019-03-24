@@ -18,5 +18,5 @@ To see the project on Heroku, please use this link: https://customermanagerpage.
 ![alt text](forreadme/heroku.png)
 
 #Set-up: 
-![alt text](forreadme/pic.png)
+![alt text](forreadme/setup.png)
 
