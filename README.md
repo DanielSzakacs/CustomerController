@@ -15,7 +15,9 @@ You can add, delete and search customers by name.
 
 #Outlook:
 To see the project on Heroku, please use this link: https://customermanagerpage.herokuapp.com/
-![alt text](forreadme/heroku.png)               
+![alt text](forreadme/heroku.png)                       
+Exception massage:                  
+![alt text](forreadme/exception.png)                    
 
 #Set-up:                       
 ![alt text](forreadme/setup.png)
