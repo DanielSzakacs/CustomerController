@@ -20,7 +20,6 @@ export class CutomerpageComponent implements OnInit {
   ngOnInit() {
     this.queryField.valueChanges
       .subscribe( result => {
-        console.log(result);
         this.searchCustomersByName(result);
       });
     this.getAllCustomer();
@@ -83,6 +82,6 @@ export class CutomerpageComponent implements OnInit {
   }
 
   edit_customer_data(data){
-    this.alertService.warning(data)
+    this.alertService.warning(data['name'])
   }
 }
