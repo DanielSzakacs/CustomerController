@@ -82,7 +82,7 @@ export class CutomerpageComponent implements OnInit {
       })
   }
 
-  edit_customer_data(){
-    this.alertService.warning('This feature is under development')
+  edit_customer_data(data){
+    this.alertService.warning(data)
   }
 }

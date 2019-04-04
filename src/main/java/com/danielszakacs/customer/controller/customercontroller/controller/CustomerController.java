@@ -65,11 +65,4 @@ public class CustomerController {
     public void deleteCustomer(@RequestParam(name = "id", required = true) String id){ //TODO this is by Customer ID
         new CustomerHandler(this.customerRepo, this.securityManger).deleteCustomer(id);
     }
-
-
-
-
-
-
-
 }
