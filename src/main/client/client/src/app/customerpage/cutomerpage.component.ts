@@ -18,6 +18,7 @@ export class CutomerpageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.alertService.info('work');
     this.queryField.valueChanges
       .subscribe( result => {
         this.searchCustomersByName(result);
@@ -82,6 +83,6 @@ export class CutomerpageComponent implements OnInit {
   }
 
   edit_customer_data(data){
-    this.alertService.warning(data['name'])
+    this.alertService.info('Edit is done');
   }
 }
