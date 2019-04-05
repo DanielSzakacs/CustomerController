@@ -18,7 +18,6 @@ export class CutomerpageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.alertService.info('work');
     this.queryField.valueChanges
       .subscribe( result => {
         this.searchCustomersByName(result);
@@ -83,6 +82,18 @@ export class CutomerpageComponent implements OnInit {
   }
 
   edit_customer_data(data){
-    this.alertService.info('Edit is done');
+    this.alertService.info('still under development');
+    // let packagedata = {'newdata': data, 'original' : this.selectedCustomer};
+    // this.http.post(environment.backendUrl + environment.editCustomer, packagedata).subscribe(res => {
+    //   this.alertService.success('Success');
+    //   this.getAllCustomer();
+    //   },
+    //   error1 => {
+    //   if(error1['status'] == 406){
+    //     this.alertService.warning('Can\'t edit the customer data')
+    //   }else{
+    //     this.alertService.danger('Something wrong, please try is later')
+    //   }
+    //   });
   }
 }
