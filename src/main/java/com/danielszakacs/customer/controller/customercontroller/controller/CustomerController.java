@@ -26,9 +26,15 @@ public class CustomerController {
     @Autowired
     SecurityManger securityManger;
 
-
-    // TODO 3) User adatainak modositasa
-
+    @PostMapping("/edit_customer")
+    public void editCustomerData(@RequestBody Map<String, Map<String, String>> customerEditData){
+//        new CustomerHandler(this.customerRepo, this.securityManger).checkEditCustomerData(customerEditData);
+        try{
+            new CustomerHandler(this.customerRepo, this.securityManger).editCustomerData(customerEditData);
+        }catch (IllegalArgumentException e){
+            throw new ResponseStatusException(HttpStatus.valueOf(406));
+        }
+    }
 
     @PostMapping("/add_customer")
     public void addNewCustomer(@RequestBody Map<String, String> customerData) {
@@ -65,11 +71,4 @@ public class CustomerController {
     public void deleteCustomer(@RequestParam(name = "id", required = true) String id){ //TODO this is by Customer ID
         new CustomerHandler(this.customerRepo, this.securityManger).deleteCustomer(id);
     }
-
-
-
-
-
-
-
 }

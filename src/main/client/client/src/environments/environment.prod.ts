@@ -5,5 +5,6 @@ export const environment = {
   getAllCustomer: '/customers',
   addNewCustomer: '/add_customer',
   deleteCustomer: '/delete_customer',
-  searchCustomer: '/search_customer'
+  searchCustomer: '/search_customer',
+  editCustomer: '/edit_customer'
 };

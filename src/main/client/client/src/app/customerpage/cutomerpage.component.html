@@ -1,4 +1,4 @@
-<ngx-alerts></ngx-alerts>
+<ngx-alerts *ngIf="true"></ngx-alerts>
 <nav class="navbar navbar-default">
   <div class="topnav" id="myTopnav">
     <a href="#home" class="active">Home</a>
@@ -34,8 +34,8 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-6 customer_main_data_table" *ngIf="selectedCustomer">
+  <div class="row" *ngIf="selectedCustomer">
+    <div class="col-md-6 customer_main_data_table">
       <div class="customer_picture">
         <img src="http://www.snippetdeveloper.com/img/users/default.png" alt="picture">
       </div>
@@ -56,9 +56,12 @@
       </ul>
       <div class="data_handler_button">
         <a href="#delete_customer" id="delete_button" class="btn btn-danger">Delete</a>
-        <a href="#" id="edit_button" (click)="this.edit_customer_data()" class="btn btn-info">Edit</a>
+        <a href="#edit_customer" id="edit_button" class="btn btn-info">Edit</a>
       </div>
     </div>
+  </div>
+  <div class="spinner_row row" *ngIf="!selectedCustomer">
+    <div class="spinner col-md-6 customer_main_data_table "></div>
   </div>
 </div>
 
@@ -91,7 +94,8 @@
         <input class="text-input-dialog" type="text" name="address" placeholder="Address" ngModel > <br>
         <input class="text-input-dialog" type="text" name="telephone" placeholder="Telephone number" ngModel >
         <hr>
-        <button class="btn btn-danger submit" type="submit">Add</button>
+        <!--<button class="btn btn-danger submit" type="submit">Add</button>-->
+        <a class="btn btn-danger submit" type="submit" href="#" (click)="addNewCustomer(addCustomer.value)">Add</a>
       </form>
     </div>
   </div>
@@ -103,7 +107,24 @@
     <h3>Do you really want to delete this customer?</h3>
     <a class="close" href="#">&times;</a>
     <div class="content">
-        <button routerLink="#" class="btn btn-danger submit" type="submit" (click)="this.delete_customer()">Delete</button>
+        <a href="#" class="btn btn-danger submit" type="submit" (click)="this.delete_customer()">Delete</a>
+    </div>
+  </div>
+</div>
+
+<!--Edit window-->
+<div id="edit_customer" class="overlay">
+  <div class="popup">
+    <h4>Edit page</h4>
+    <a class="close" href="#">&times;</a>
+    <div class="content">
+      <form #edit_customer_form = "ngForm">
+        <input class="text-input-dialog" type="text" name="name" value="{{this.selectedCustomer['name']}}" ngModel > <br>
+        <input class="text-input-dialog" type="text" name="email" value="{{this.selectedCustomer['email']}}" ngModel > <br>
+        <input class="text-input-dialog" type="text" name="address" value="{{this.selectedCustomer['address']}}" ngModel > <br>
+        <input class="text-input-dialog" type="text" name="telephone" value="{{this.selectedCustomer['telephone']}}" ngModel > <br>
+        <a href="#" class="btn btn-danger" type="submit" (click)="edit_customer_data(edit_customer_form.value)" >Save changes</a>
+      </form>
     </div>
   </div>
 </div>

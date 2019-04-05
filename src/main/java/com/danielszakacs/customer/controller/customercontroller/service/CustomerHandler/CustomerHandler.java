@@ -7,7 +7,9 @@ import com.danielszakacs.customer.controller.customercontroller.service.security
 
 
 import javax.naming.directory.AttributeInUseException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class CustomerHandler {
@@ -54,7 +56,26 @@ public class CustomerHandler {
         this.customerRepo.deleteById(Long.parseLong(id));
     }
 
-//    public void editCustomerData(String) //TODO
+    public void editCustomerData(Map<String, Map<String, String>>userData) throws IllegalArgumentException {
+        Map<String, String> checkedCustomerData = this.checkEditCustomerData(userData);
+        try{
+//            this.customerRepo.editCustomerData(userData.get("email"), userData.get("name"), userData.get("address"), userData.get("telephone"));
+            this.customerRepo.edit_customerData(checkedCustomerData.get("name"), checkedCustomerData.get("id"));
+        }catch (Exception e){
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public Map<String, String> checkEditCustomerData(Map<String, Map<String, String>> packageOfCustomerData){
+        Map<String, String> newCustomerMap;
+        for (String data: packageOfCustomerData.get("newdata").keySet()) {
+            if(packageOfCustomerData.get("newdata").get(data) != ""){
+                packageOfCustomerData.get("original").put(data, packageOfCustomerData.get("newdata").get(data));
+            }
+        }
+        newCustomerMap = packageOfCustomerData.get("original");
+        return newCustomerMap;
+    }
 
     public List<Customer> getAllCustomer(){
         return this.customerRepo.findAll();
